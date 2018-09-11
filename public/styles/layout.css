@@ -3,12 +3,17 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+
 html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+
+
+
 
 /*
  * Global layout stuff
@@ -20,6 +25,15 @@ body {
   background-color: #eee;
   font-family: 'Roboto Condensed', sans-serif;
 }
+
+ main {
+   width:450px;
+   height:500px;
+   margin:0 auto;
+   position: relative;
+   padding:140px 0 0 0;
+   background-color: #ffffff;
+ }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
