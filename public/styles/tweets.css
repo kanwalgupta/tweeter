@@ -1,14 +1,18 @@
 #tweet-container {
-  border:solid #bfbfbf 1px;
+
   border-radius:5px;
   margin:1em 2em;
-  opacity:0.7;
+
 }
- #tweet-container article header {
-  padding:.5em;
-  background-color: #eee;
+
+
+ #tweet-container article{
+  border:solid #bfbfbf 1px;
   border-radius:5px;
-}
+  margin-top: 1em;
+  opacity:0.7
+ }
+
  #tweet-container .user_name {
   font-weight:bold;
   font-size:1.5em;
@@ -20,6 +24,10 @@
   padding:0.6em 2.5em 0.5em;
   font-size:.75em;
   border-top:solid #bfbfbf 1px;
+}
+
+#tweet-container article header {
+  border-bottom:solid #bfbfbf 1px;
 }
 
  article img {
@@ -46,6 +54,6 @@ div.displayOnHover img{
   opacity:0;
 }
 
-#tweet-container:hover,#tweet-container:hover .displayOnHover {
+#tweet-container article:hover,#tweet-container article:hover .displayOnHover  {
   opacity:1;
 }
