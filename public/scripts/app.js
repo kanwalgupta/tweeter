@@ -50,10 +50,16 @@ $( document ).ready(function() {
   }
   $("form").on("submit", function(event) {
     event.preventDefault();
-    $.ajax('/tweets', { method: 'POST' , data: $("form").serialize()})
-    .then(function (tweet) {
-      $('#tweet-container').append(createTweetElement(tweet));
-      $(".tweet-area").val("");
-    });
+    if($(".tweet-area").val().length === 0){
+      alert("Please enter something in tweet area to submit");
+    }else if($(".tweet-area").val().length > 140){
+      alert("User cannot enter more than 140 characters in a tweet");
+    }else{
+      $.ajax('/tweets', { method: 'POST' , data: $("form").serialize()})
+        .then(function (tweet) {
+          $('#tweet-container').append(createTweetElement(tweet));
+          $(".tweet-area").val("");
+      });
+    }
   });
 });
