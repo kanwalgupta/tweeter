@@ -57,7 +57,7 @@ $( document ).ready(function() {
     }else{
       $.ajax('/tweets', { method: 'POST' , data: $("form").serialize()})
         .then(function (tweet) {
-          $('#tweet-container').append(createTweetElement(tweet));
+          $('#tweet-container').prepend(createTweetElement(tweet));
           $(".tweet-area").val("");
       });
     }
