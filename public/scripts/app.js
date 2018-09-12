@@ -5,6 +5,12 @@ function renderTweets(tweets) {
   });
 }
 
+//Function for converting unsafe user input for avoiding XSS
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 function createTweetElement(tweetData) {
   let $avatar = tweetData.user.avatars.small;
@@ -55,6 +61,10 @@ $( document ).ready(function() {
     }else if($(".tweet-area").val().length > 140){
       alert("User cannot enter more than 140 characters in a tweet");
     }else{
+      // Code for avoidance of Cross Site Scripting
+      let unsafeValue = $(".tweet-area").val();
+      $(".tweet-area").val(escape(unsafeValue));
+
       $.ajax('/tweets', { method: 'POST' , data: $("form").serialize()})
         .then(function (tweet) {
           $('#tweet-container').prepend(createTweetElement(tweet));
