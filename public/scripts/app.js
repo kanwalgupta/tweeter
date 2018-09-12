@@ -89,6 +89,15 @@ const data = [
     "created_at": 1461113796368
   }
 ];
- $( document ).ready(function() {
+$( document ).ready(function() {
   renderTweets(data);
+  $("form").on("submit", function(event) {
+    event.preventDefault();
+    console.log("prevented");
+    $.ajax('/tweets', { method: 'POST' , data: $("form").serialize()})
+    .then(function (tweet) {
+      $('#tweet-container').append(createTweetElement(tweet));
+      $("#tweet-area").text("");
+    });
+  });
 });
