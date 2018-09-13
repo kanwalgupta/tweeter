@@ -7,11 +7,17 @@ function renderTweets(tweets) {
 function registerFormSubmissionHandler(){
   $("form").on("submit", function(event) {
       event.preventDefault();
+      if($(".error-message").is(":visible")){
+        $(".error-message").slideUp();
+      }
       if($(".tweet-area").val().length === 0){
-        alert("Please enter something in tweet area to submit");
+        $(".error-message").html("Please enter something in tweet area to submit");
+        $(".error-message").slideDown();
       }else if($(".tweet-area").val().length > 140){
-        alert("User cannot enter more than 140 characters in a tweet");
+        $(".error-message").slideDown();
+        $(".error-message").html("User cannot enter more than 140 characters in a tweet");
       }else{
+        $(".error-message").html("").slideUp();
         // Code for avoidance of Cross Site Scripting
         let unsafeValue = $(".tweet-area").val();
         $(".tweet-area").val(escape(unsafeValue));
@@ -20,6 +26,7 @@ function registerFormSubmissionHandler(){
           .then(function (tweet) {
             $('#tweet-container').prepend(createTweetElement(tweet));
             $(".tweet-area").val("");
+            $(".counter").html("140");
         });
       }
   });
@@ -67,6 +74,9 @@ function createTweetElement(tweetData) {
 }
 
 $( document ).ready(function() {
+  // On Page LoadUp , Error message is not displayed using slideUp
+  $(".error-message").html("").slideUp();
+
   loadTweets();
   function loadTweets(){
     $.ajax('/tweets', { method: 'GET'})
