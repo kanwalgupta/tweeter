@@ -13,6 +13,21 @@ nav {
 
 }
 
+#nav-bar div {
+  float: right;
+  margin-top: 0.6em;
+}
+
+
+#nav-bar button {
+  cursor: pointer;
+  color: #244751;
+  background-color:#d3ffe3;
+  font-size:1.5em;
+  height:60px;
+  border:solid black 1px;
+  border-radius:5px;
+}
 
 #nav-bar .logo {
   width: 80px;
@@ -20,6 +35,8 @@ nav {
   float: left;
   margin-right: 10px
 }
+
+
 
 #nav-bar .header {
   float: left;
