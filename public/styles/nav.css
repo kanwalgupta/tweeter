@@ -1,3 +1,26 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+main {
+  width: 450px;
+  margin: 0 auto;
+  position: relative;
+  padding: 140px 0 0 0;
+  background-color: #ffffff;
+}
+
 nav {
   top: 0;
   position: fixed;
@@ -5,12 +28,11 @@ nav {
   height: 80px;
   background-color: #00a087;
   color: #e8fdff;
-  z-index:1;
+  z-index: 1;
   padding-left: 2em;
   padding-right: 2em;
   padding-top: 0em;
   padding-bottom: 0em;
-
 }
 
 #nav-bar div {
@@ -18,28 +40,27 @@ nav {
   margin-top: 0.6em;
 }
 
-
 #nav-bar button {
   cursor: pointer;
   color: #244751;
-  background-color:#d3ffe3;
-  font-size:1.5em;
-  height:60px;
-  border:solid black 1px;
-  border-radius:5px;
+  background-color: #d3ffe3;
+  font-size: 1.5em;
+  height: 60px;
+  border: solid black 1px;
+  border-radius: 5px;
 }
 
 #nav-bar .logo {
   width: 80px;
   height: 80px;
   float: left;
-  margin-right: 10px
+  margin-right: 10px;
 }
-
-
 
 #nav-bar .header {
   float: left;
   font-size: xx-large;
   line-height: 80px;
 }
+
+/*# sourceMappingURL=nav.css.map */

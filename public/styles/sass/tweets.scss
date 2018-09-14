@@ -1,0 +1,58 @@
+@import 'layout';
+
+
+$border-color : #bfbfbf;
+$border-radius : 5px;
+
+
+#tweet-container {
+
+  border-radius:$border-radius;
+  margin:1em 2em;
+
+  article {
+    border:solid $border-color 1px;
+    border-radius:5px;
+    margin-top: 1em;
+    opacity:0.7;
+
+    footer {
+      padding:0.6em 2.5em 0.5em;
+      font-size:.75em;
+      border-top:solid $border-color 1px;
+    };
+
+    header {
+    border-bottom:solid $border-color 1px;
+    };
+    img {
+      height:50px;
+      width:50px;
+    };
+    span.tweetedText{
+      word-wrap: break-word;
+    }
+ }
+ .user_name {
+  font-weight:bold;
+  font-size:1.5em;
+  position: absolute;
+  margin-left:.5em;
+ };
+ .user_handle {
+    float: right;
+ };
+  div.displayOnHover {
+    opacity :0;
+    float : right;
+    img{
+      height:1.5em;
+      width:1.5em;
+    };
+  };
+  article:hover, article:hover .displayOnHover  {
+  opacity:1;
+  };
+}
+
+

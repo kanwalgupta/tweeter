@@ -1,0 +1,21 @@
+ @import 'layout';
+
+
+ .new-tweet {
+  padding:1em;
+  border:solid #bfbfbf 1px;
+  border-radius:5px;
+  background-color: #eee;
+  margin:0 2em;
+ }
+  main h2 {
+   margin-top:0;
+   border-bottom: solid black 1px;
+ }
+  textarea {
+   width:100%;
+   padding:3px;
+ }
+  .counter {
+   float:right;
+ }

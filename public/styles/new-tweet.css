@@ -1,18 +1,46 @@
- .new-tweet {
-  padding:1em;
-  border:solid #bfbfbf 1px;
-  border-radius:5px;
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  color: #244751;
   background-color: #eee;
-  margin:0 2em;
- }
-  main h2 {
-   margin-top:0;
-   border-bottom: solid black 1px;
- }
-  textarea {
-   width:100%;
-   padding:3px;
- }
-  .counter {
-   float:right;
- }
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+main {
+  width: 450px;
+  margin: 0 auto;
+  position: relative;
+  padding: 140px 0 0 0;
+  background-color: #ffffff;
+}
+
+.new-tweet {
+  padding: 1em;
+  border: solid #bfbfbf 1px;
+  border-radius: 5px;
+  background-color: #eee;
+  margin: 0 2em;
+}
+
+main h2 {
+  margin-top: 0;
+  border-bottom: solid black 1px;
+}
+
+textarea {
+  width: 100%;
+  padding: 3px;
+}
+
+.counter {
+  float: right;
+}
+
+/*# sourceMappingURL=new-tweet.css.map */
