@@ -4,9 +4,9 @@ Tweeter App is replica of the famous Twitter App.  It's a single page applicatio
 
 ## Final Product
 
-![Fullscreen View]()
-![Compose a tweet]()
-![Response to compose tweet]()
+![Fullscreen View](https://github.com/kanwalgupta/tweeter/blob/master/docs/tweets_home.png)
+![Compose a tweet](https://github.com/kanwalgupta/tweeter/blob/master/docs/compose_tweet.png)
+![Response to compose tweet](https://github.com/kanwalgupta/tweeter/blob/master/docs/composed_tweets.png)
 
 ## Dependencies
   - body-parser
@@ -23,5 +23,4 @@ Tweeter App is replica of the famous Twitter App.  It's a single page applicatio
 
 ## Features
 
-- post, view, and like tweets using a randomly generated name
-- responsive design
+- post, view using a randomly generated name
