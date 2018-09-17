@@ -63,6 +63,12 @@ main {
   height: 1.5em;
   width: 1.5em;
 }
+
+#tweet-container div.displayOnHover span.likes {
+  height: 1.5em;
+  width: 1.5em;
+}
+
 #tweet-container article:hover, #tweet-container article:hover .displayOnHover {
   opacity: 1;
 }

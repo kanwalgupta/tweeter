@@ -32,6 +32,26 @@ function registerFormSubmissionHandler(){
   });
 }
 
+function registerImageClickHandler(){
+  $("body").on("click", function(event) {
+    if($(event.target).hasClass("likes")){
+      let likes = Number($(".numLikes").html());
+      console.log($(".numLikes").html());
+      if($(event.target).data("liked") === "unlike"){
+        $(event.target).data("liked","like");
+        $(event.target).parent().find(".numLikes").html(likes + 1);
+      }else{
+        console.log("unlike");
+        $(event.target).data("liked","unlike");
+        $(event.target).parent().find(".numLikes").html(likes - 1);
+      }
+      $.ajax(`/tweets/likes/${$(event.target).data("tweet-id")}/${$(event.target).data("liked")}`, { method: 'POST' });
+
+    }
+  });
+
+}
+
 //Function for converting unsafe user input for avoiding XSS
 function escape(str) {
   var div = document.createElement('div');
@@ -49,6 +69,10 @@ function createTweetElement(tweetData) {
   let tweetDate = new Date(tweetData.created_at);
   let todaysDate = new Date();
   let $diffDays = Math.floor((todaysDate - tweetDate)/oneDay);
+  let $tweet_id = tweetData._id;
+  let $likes = Number(tweetData.likes);
+  console.log("likes",$likes);
+
 
 
    return `
@@ -67,7 +91,8 @@ function createTweetElement(tweetData) {
               <div class="displayOnHover">
                 <img src="images/flag.png">
                 <img src="images/retweet.png">
-                <img src="images/like.png">
+                <img class= "likes" src="images/like.png" data-liked ="unlike" data-tweet-id =${$tweet_id} >
+                <span class="numLikes">${$likes}</span>
               </div>
             </footer>
         </article>` ;
@@ -85,6 +110,7 @@ $( document ).ready(function() {
     });
   }
   registerFormSubmissionHandler();
+  registerImageClickHandler();
   $( ".compose" ).click(function() {
     if($(".new-tweet").is(":visible")){
       $( ".new-tweet" ).slideUp( "slow", function() {

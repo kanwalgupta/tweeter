@@ -31,7 +31,6 @@ module.exports = function(DataHelpers) {
       },
       created_at: Date.now()
     };
-
     DataHelpers.saveTweet(tweet, (err) => {
       if (err) {
         res.status(500).json({ error: err.message });
@@ -40,7 +39,16 @@ module.exports = function(DataHelpers) {
       }
     });
   });
+  tweetsRoutes.post("/likes/:id/:status", function(req, res) {
 
+    DataHelpers.updateStatus(req.params.id,req.params.status,(err) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+      } else {
+        res.status(201);
+      }
+    });
+  });
   return tweetsRoutes;
 
 }

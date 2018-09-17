@@ -13,6 +13,17 @@ module.exports = function makeDataHelpers(db) {
       callback(null,true);
     },
 
+    updateStatus: function(id,status,callback) {
+      console.log(id);
+      console.log(status);
+      if(status === "unlike"){
+       db.collection("tweets").update({ "_id": id },{ $inc: { "likes": -1 } });
+      }else{
+        db.collection("tweets").update({ "_id": id },{ $inc: { "likes": 1 } });
+      }
+      callback(null,true);
+    },
+
     // Get all tweets in `db`, sorted by newest first
     getTweets: function(callback) {
         db.collection("tweets").find().toArray(function(err,tweets){
