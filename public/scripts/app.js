@@ -35,13 +35,11 @@ function registerFormSubmissionHandler(){
 function registerImageClickHandler(){
   $("body").on("click", function(event) {
     if($(event.target).hasClass("likes")){
-      let likes = Number($(".numLikes").html());
-      console.log($(".numLikes").html());
+      let likes = Number($(event.target).parent().find(".numLikes").html());
       if($(event.target).data("liked") === "unlike"){
         $(event.target).data("liked","like");
         $(event.target).parent().find(".numLikes").html(likes + 1);
       }else{
-        console.log("unlike");
         $(event.target).data("liked","unlike");
         $(event.target).parent().find(".numLikes").html(likes - 1);
       }

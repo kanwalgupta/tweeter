@@ -1,5 +1,5 @@
 "use strict";
-
+var ObjectID = require('mongodb').ObjectID;
 // Simulates the kind of delay we see with network or filesystem operations
 const simulateDelay = require("./util/simulate-delay");
 
@@ -14,12 +14,10 @@ module.exports = function makeDataHelpers(db) {
     },
 
     updateStatus: function(id,status,callback) {
-      console.log(id);
-      console.log(status);
       if(status === "unlike"){
-       db.collection("tweets").update({ "_id": id },{ $inc: { "likes": -1 } });
+        db.collection("tweets").update({ "_id": ObjectID(id) },{ $inc: { "likes": -1 } });
       }else{
-        db.collection("tweets").update({ "_id": id },{ $inc: { "likes": 1 } });
+        db.collection("tweets").update({ "_id": ObjectID(id) },{ $inc: { "likes": 1 } });
       }
       callback(null,true);
     },
